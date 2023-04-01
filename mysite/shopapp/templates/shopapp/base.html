@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Block Title
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+{% block body %}
+    Block Body
+{% endblock %}
+
+<div>
+    {% now 'H:i' %}
+</div>
+
+<div>
+    {% now 'l' as current_day %}
+    Today is a: {{ current_day }}
+</div>
+
+</body>
+</html>
