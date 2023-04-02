@@ -4,7 +4,7 @@ from django.db import models
 
 class Products(models.Model):
     class Meta:
-        ordering = ["-name"]
+        ordering = ["name"]
 
     name = models.CharField(max_length=100)
     description = models.TextField(null=False, blank=True)
@@ -13,6 +13,15 @@ class Products(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     archived = models.BooleanField(default=False)
 
+    # можно сделать и в админке, если отображение скрыть только в админке
+    # @property
+    # def description_short(self) -> str:
+    #     if len(self.description) < 48:
+    #         return self.description
+    #     return self.description[:48] + "..."
+
+    def __str__(self) -> str:
+        return f"Product (pk={self.pk}, name={self.name!r})"
 
 class Order(models.Model):
     delivery_adress = models.TextField(null=False, blank=True)
