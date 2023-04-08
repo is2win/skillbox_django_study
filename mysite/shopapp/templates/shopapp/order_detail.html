@@ -1,0 +1,25 @@
+{% extends "shopapp/base.html" %}
+
+{% block title %}
+    Order #{{ object.pk }} details
+{% endblock %}
+
+{% block body %}
+    <h1>Order #{{ object.pk }}</h1>
+    <div>
+        <p>{% firstof object.user.firstname order.user.username %}</p>
+        <p>Promocode: <code>{{ object.promocode }}</code></p>
+        <p>Delivery Adress: {{ object.delivery_adress }}</p>
+    <div>Products in order:</div>
+    <ul>
+        {% for product in object.products.all %}
+            <li>{{ product.name }} for ${{ product.price }}</li>
+        {% endfor %}
+
+    </ul>
+    </div>
+
+    <div>
+        <a href="{%  url "shopapp:orders_list" %}">Back to orders list</a>
+    </div>
+{% endblock %}
