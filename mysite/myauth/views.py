@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LogoutView
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse, reverse_lazy
+from django.views import View
 from django.views.generic import TemplateView, CreateView
 from .models import Profile
 
@@ -77,3 +78,8 @@ def logout_view(request: HttpRequest):
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy("myauth:login")
+
+
+class FooBarView(View):
+    def get(selfself, request: HttpRequest) -> JsonResponse:
+        return JsonResponse({"foo": "bar", "spam": "eggs"})

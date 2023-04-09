@@ -1,7 +1,7 @@
 from timeit import default_timer
 
 from django.contrib.auth.models import Group
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -31,7 +31,8 @@ class ProductDeleteView(DeleteView):
 
 
 
-class ProductCreateView(UserPassesTestMixin, CreateView):
+# class ProductCreateView(UserPassesTestMixin, CreateView):
+class ProductCreateView(CreateView):
     def test_func(self):
         # return self.request.user.groups.filter(name="secret-group").exists()
         return self.request.user.is_superuser
@@ -152,3 +153,18 @@ def create_product(request:HttpRequest) -> HttpResponse:
     }
 
     return render(request, "shopapp/create-product.html", context=context)
+
+
+class ProductsDataExcportView(View):
+    def get(self, request: HttpRequest) -> JsonResponse:
+        products = Products.objects.order_by("pk").all()
+        products_data = [
+            {
+                "pk": product.pk,
+                "name": product.name,
+                "price": product.price,
+                "archived": product.archived
+            }
+            for product in products
+        ]
+        return JsonResponse({"products": products_data})

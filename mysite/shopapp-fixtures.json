@@ -1,0 +1,88 @@
+[
+  {
+    "model": "shopapp.products",
+    "pk": 1,
+    "fields": {
+      "name": "Laptop",
+      "description": "hs,rf",
+      "price": "1999.00",
+      "discount": 0,
+      "created_at": "2023-04-01T15:00:59.291Z",
+      "archived": false
+    }
+  },
+  {
+    "model": "shopapp.products",
+    "pk": 2,
+    "fields": {
+      "name": "Desktop",
+      "description": "то текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "price": "2999.00",
+      "discount": 10,
+      "created_at": "2023-04-01T15:00:59.291Z",
+      "archived": false
+    }
+  },
+  {
+    "model": "shopapp.products",
+    "pk": 3,
+    "fields": {
+      "name": "Smartphone",
+      "description": "",
+      "price": "999.00",
+      "discount": 25,
+      "created_at": "2023-04-01T15:00:59.291Z",
+      "archived": false
+    }
+  },
+  {
+    "model": "shopapp.products",
+    "pk": 4,
+    "fields": {
+      "name": "SSSSS",
+      "description": "some opisalka",
+      "price": "1241.00",
+      "discount": 0,
+      "created_at": "2023-04-05T16:34:03.712Z",
+      "archived": false
+    }
+  },
+  {
+    "model": "shopapp.products",
+    "pk": 5,
+    "fields": {
+      "name": "wdqdq",
+      "description": "asrbeb ewv great",
+      "price": "121.00",
+      "discount": 0,
+      "created_at": "2023-04-05T17:49:51.734Z",
+      "archived": false
+    }
+  },
+  {
+    "model": "shopapp.products",
+    "pk": 6,
+    "fields": {
+      "name": "AAA",
+      "description": "dsfr",
+      "price": "124.00",
+      "discount": 112,
+      "created_at": "2023-04-05T18:08:06.496Z",
+      "archived": true
+    }
+  },
+  {
+    "model": "shopapp.order",
+    "pk": 1,
+    "fields": {
+      "delivery_adress": "Some street, d8",
+      "promocode": "sale12",
+      "created_at": "2023-04-02T06:46:41.656Z",
+      "user": 1,
+      "products": [
+        1,
+        3
+      ]
+    }
+  }
+]
